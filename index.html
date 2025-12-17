@@ -1,67 +1,31 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Push Up Challenge</title>
-    <style>
-        body { 
-            background-color: black; 
-            color: white; 
-            margin: 0; 
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif; 
-            text-align: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            padding-bottom: 50px;
-        }
-        .header-bg { 
-            width: 100%; 
-            display: block; 
-        }
-        .menu-title { 
-            margin: 30px 0 20px 0; 
-            font-weight: bold; 
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .level-card { 
-            background: #000; 
-            border: 1px solid #333; 
-            margin: 0 15px 25px 15px; 
-            border-radius: 12px; 
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.05);
-        }
-        .level-img { 
-            width: 100%; 
-            display: block; 
-        }
-    </style>
-</head>
-<body>
+<div style="margin: 20px auto; padding: 20px; border: 2px dashed #555; max-width: 400px; border-radius: 15px;">
+    <h3 style="color: #ffcc00;">LUCKY PUSH UP CHALLENGE</h3>
+    <p>Dapetin angka random buat tantangan hari ini!</p>
+    
+    <div id="resultBox" style="font-size: 50px; font-weight: bold; color: white; margin: 10px 0; height: 60px;">--</div>
+    
+    <button onclick="generateRandom()" style="background: white; color: black; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+        SPIN ANGKA 🎲
+    </button>
+</div>
 
-    <div class="container">
-        <img src="main_bg.png" class="header-bg">
-
-        <h2 class="menu-title">CHOOSE YOUR TIER</h2>
-
-        <div class="level-card">
-            <img src="lv1.png" class="level-img">
-        </div>
-
-        <div class="level-card">
-            <img src="lv2.png" class="level-img">
-        </div>
-
-        <div class="level-card">
-            <img src="lv3.png" class="level-img">
-        </div>
-
-        <div class="level-card">
-            <img src="lv4.png" class="level-
-                img">
+<script>
+function generateRandom() {
+    const box = document.getElementById('resultBox');
+    let count = 0;
+    
+    // Efek animasi biar kayak mesin gacha
+    const interval = setInterval(() => {
+        box.innerText = Math.floor(Math.random() * 50) + 1; // Angka 1-50
+        count++;
+        if (count > 10) {
+            clearInterval(interval);
+            // Angka terakhir yang beneran keluar (Cuma dilihat user itu sendiri)
+            const finalNum = Math.floor(Math.random() * 50) + 1;
+            box.innerText = finalNum;
+            box.style.color = "#00ff00"; // Berubah ijo kalau udah fix
+        }
+    }, 50);
+}
+</script
+    >
