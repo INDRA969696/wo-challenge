@@ -5,41 +5,36 @@
     <title>Elite Workout</title>
     <style>
         body { background-color: black; color: white; margin: 0; font-family: 'Courier New', monospace; overflow-x: hidden; }
-        .container { width: 100%; max-width: 500px; margin: 0 auto; padding-bottom: 80px; position: relative; }
+        .container { width: 100%; max-width: 500px; margin: 0 auto; padding-bottom: 80px; position: relative; min-height: 100vh; }
         
-        /* Tombol Rules Kanan Atas */
         .btn-rules { 
             position: absolute; top: 15px; right: 15px; background: none; color: white; 
             border: 1px solid white; padding: 5px 12px; border-radius: 4px; font-size: 10px; cursor: pointer; z-index: 10;
         }
 
-        /* Tampilan Gacha Pakai Gambar Bos */
-        .gacha-container { 
-            position: relative; width: 100%; height: 350px; 
-            background: url('slot_bg.png') no-repeat center; background-size: contain; 
+        /* Gacha Box */
+        .gacha-section { text-align: center; padding: 60px 20px 20px 20px; }
+        #spinResult { font-size: 100px; font-weight: bold; margin-bottom: 10px; }
+        .btn-spin { 
+            background: white; color: black; border: none; padding: 10px 30px; 
+            font-weight: bold; border-radius: 5px; cursor: pointer; font-family: 'Courier New', monospace;
         }
-        #spinResult { 
-            position: absolute; top: 50%; left: 25%; transform: translate(-50%, -50%);
-            font-size: 80px; font-weight: bold; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-        .spin-area { position: absolute; bottom: 20%; right: 10%; width: 40%; height: 100px; cursor: pointer; }
 
-        /* Menu Bawah */
+        /* Navigasi Bawah */
         .bottom-nav { 
             position: fixed; bottom: 0; width: 100%; max-width: 500px; 
-            display: flex; background: black; border-top: 2px solid white; z-index: 20;
+            display: flex; background: black; border-top: 1px solid white; z-index: 20;
         }
-        .nav-item { flex: 1; padding: 15px; border-right: 1px solid white; font-weight: bold; font-size: 14px; cursor: pointer; text-align: center; }
+        .nav-item { flex: 1; padding: 20px; border-right: 1px solid white; font-size: 12px; cursor: pointer; text-align: center; font-weight: bold; }
         .nav-item:last-child { border-right: none; }
 
-        /* Content Area */
-        .content-section { display: none; padding: 20px; }
+        .content-section { display: none; padding: 20px; text-align: center; }
         .level-card { border: 1px solid #333; margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
         .level-img { width: 100%; display: block; }
 
         /* Modal Rules */
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
-        .modal-content { background: #000; margin: 15% auto; padding: 20px; border: 1px solid white; width: 85%; border-radius: 10px; text-align: left; font-size: 13px; }
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); }
+        .modal-content { background: #000; margin: 10% auto; padding: 25px; border: 1px solid white; width: 80%; border-radius: 10px; text-align: left; font-size: 13px; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -47,16 +42,17 @@
     <div class="container">
         <button class="btn-rules" onclick="openRules()">RULES</button>
 
-        <div class="gacha-container" onclick="startGacha()">
+        <div class="gacha-section">
             <div id="spinResult">00</div>
-            <div class="spin-area"></div> </div>
+            <button class="btn-spin" onclick="startGacha()">SPIN NOW</button>
+        </div>
 
         <div id="armContent" class="content-section">
-            <h2 style="border-bottom: 2px solid white; display: inline-block;">ARM LEVELS</h2>
+            <h2 style="border-bottom: 2px solid white; display: inline-block; margin-bottom: 20px;">ARM LEVELS</h2>
             <div class="level-card"><img src="lv1.png" class="level-img"></div>
             <div class="level-card"><img src="lv2.png" class="level-img"></div>
             <div class="level-card"><img src="lv3.png" class="level-img"></div>
-            <div class="level-card"><img src="lv4.png" class="level-img" style="max-height:400px; object-fit:contain;"></div>
+            <div class="level-card"><img src="lv4.png" class="level-img" style="max-height:450px; object-fit:contain;"></div>
         </div>
 
         <div id="coreContent" class="content-section"><h2>CORE - LOCKED 🔒</h2></div>
@@ -71,12 +67,13 @@
 
     <div id="rulesModal" class="modal">
         <div class="modal-content">
-            <h2 style="text-align:center; border-bottom:1px solid white;">RULES</h2>
-            <p>1. Tepati janji Rep sebelum main.</p>
-            <p>2. Poin = Jumlah repetisi.</p>
-            <p>3. Bisa bagi variasi (Contoh: 20 poin = 15 reg + 5 OAP).</p>
-            <p>4. Dilarang curang! 🔥</p>
-            <button onclick="closeRules()" style="width:100%; padding:10px; background:white; color:black; border:none; font-weight:bold;">CLOSE</button>
+            <h2 style="text-align:center; border-bottom:1px solid white; padding-bottom:10px;">RULES</h2>
+            <p>1. Wajib menepati janji repetisi sebelum mulai.</p>
+            <p>2. Angka poin = Jumlah total repetisi.</p>
+            <p>3. Jika dapat 20 poin, boleh dibagi (contoh: 15 reg + 5 OAP).</p>
+            <p>4. <b>PENTING:</b> Jika poin sisa 5, dilarang melakukan variasi yang syarat poinnya di atas 5 (misal variasi level tinggi yang butuh reps lebih).</p>
+            <p>5. Dilarang curang! 🗿🔥</p>
+            <button onclick="closeRules()" style="width:100%; padding:12px; background:white; color:black; border:none; font-weight:bold; margin-top:15px;">TUTUP</button>
         </div>
     </div>
 
@@ -97,6 +94,7 @@
         function showTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
             document.getElementById(tabId).style.display = 'block';
+            document.getElementById(tabId).scrollIntoView({ behavior: 'smooth' });
         }
 
         function openRules() { document.getElementById("rulesModal").style.display = "block"; }
