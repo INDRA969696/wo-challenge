@@ -1,37 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Push Up Challenge</title>
     <style>
-        body { background-color: black; color: white; margin: 0; font-family: sans-serif; text-align: center; }
-        .menu-container { padding: 20px; }
-        .bg-img { width: 100%; max-width: 500px; display: block; margin: 0 auto; }
-        .level-card { 
-            background: #111; border: 1px solid #333; 
-            margin: 15px auto; max-width: 400px; border-radius: 10px; overflow: hidden;
+        body { 
+            background-color: black; 
+            color: white; 
+            margin: 0; 
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif; 
+            text-align: center;
         }
-        .level-img { width: 100%; display: block; }
-        h2 { font-size: 18px; margin: 10px 0; color: #fff; text-transform: uppercase; }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+        .header-bg { 
+            width: 100%; 
+            display: block; 
+        }
+        .menu-title { 
+            margin: 30px 0 20px 0; 
+            font-weight: bold; 
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .level-card { 
+            background: #000; 
+            border: 1px solid #333; 
+            margin: 0 15px 25px 15px; 
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+        }
+        .level-img { 
+            width: 100%; 
+            display: block; 
+        }
     </style>
 </head>
 <body>
 
-    <img src="main_bg.png" class="bg-img">
+    <div class="container">
+        <img src="main_bg.png" class="header-bg">
 
-    <div class="menu-container">
-        <h2>CHOOSE YOUR TIER</h2>
-        
-        <div class="level-card">
-            <img src="lvl1.png" class="level-img">
-        </div>
+        <h2 class="menu-title">CHOOSE YOUR TIER</h2>
 
         <div class="level-card">
-            <img src="lvl2.png" class="level-img">
+            <img src="lv1.png" class="level-img">
         </div>
 
+        <div class="level-card">
+            <img src="lv2.png" class="level-img">
         </div>
 
-</body>
-</h
-  tml>
+        <div class="level-card">
+            <img src="lv3.png" class="level-img">
+        </div>
+
+        <div class="level-card">
+            <img src="lv4.png" class="level-
+                img">
