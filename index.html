@@ -1,34 +1,49 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAINTENANCE - WO CHALLENGE</title>
-    <style>
-        /* Bikin background item pekat biar nyatu sama gambar */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background-color: #000; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Biar gak bisa di-scroll */
-        }
+<style>
+    /* CSS Tambahan buat ngerapihin tombol yang makin banyak */
+    .btn-container {
+        display: flex;
+        gap: 10px;
+        flex-direction: column; /* Biar vertikal di HP biar gak sempit */
+        width: 80%;
+        max-width: 300px;
+    }
+    
+    .btn {
+        padding: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        font-size: 13px;
+        transition: 0.3s;
+        text-transform: uppercase;
+        border: 2px solid #fff;
+        display: block;
+    }
 
-        /* Styling gambar biar responsif di HP */
-        .maintenance-img {
-            max-width: 100%;
-            max-height: 100vh;
-            object-fit: contain; /* Biar gambar gak kepotong */
-        }
-    </style>
-</head>
-<body>
+    /* Variasi warna biar beda tiap tombol */
+    .btn-wa-group { background: #fff; color: #000; }
+    .btn-wa-channel { background: transparent; color: #fff; }
+    .btn-discord { background: #5865F2; color: #fff; border-color: #5865F2; }
 
-    <img src="maintenance.png" alt="Maintenance WO Challenge" class="maintenance-img">
+    .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+</style>
 
-</body>
-</ht
-<html>
+<div class="img-box">
+    <img src="maintenance.png" alt="Maintenance">
+</div>
+
+<div class="progress-wrapper">
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="percent-text">UPGRADING ULTIMATE POWER: 75%</div>
+</div>
+
+<div class="btn-container">
+    <a href="https://chat.whatsapp.com/GROUP_LINK" class="btn btn-wa-group">WhatsApp Group</a>
+    
+    <a href="https://whatsapp.com/channel/CHANNEL_LINK" class="btn btn-wa-channel">Saluran Update (WA)</a>
+    
+    <a href="https://discord.gg/DISCORD_LINK" class="btn btn-discord">Discord Server</a>
+<
+    /div>
